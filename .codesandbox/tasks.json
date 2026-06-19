@@ -1,0 +1,16 @@
+{
+  "$schema": "https://codesandbox.io/schemas/tasks.json",
+  "setupTasks": [{ "name": "Install", "command": "npm install" }],
+  "tasks": {
+    "dev": {
+      "name": "Dev (Nx + Turbopack)",
+      "command": "npm run dev",
+      "runAtStart": true,
+      "preview": { "port": 3003 }
+    },
+    "build": {
+      "name": "Build (Turbopack)",
+      "command": "npm run build"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+/*
+  Override applied on top of the shared Button. Equal specificity (0,1,0) to
+  `.kindPrimary`. It is authored to win by being later in source order — which is
+  exactly the assumption Turbopack breaks when it appends a Button chunk copy
+  after this one on a client navigation.
+
+  Try the fix: change the selector to `.featureButton.featureButton` (specificity
+  0,2,0) and the override wins regardless of chunk order.
+*/
+.featureButton {
+  --btn-bg: transparent;
+  --btn-fg: #ffffff;
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 220px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #2a2118 0%, #15212e 100%);
+}

@@ -1,0 +1,9 @@
+node_modules
+.next
+.nx
+apps/web/.next
+out
+*.log
+.DS_Store
+.env*
+next-env.d.ts.timestamp
