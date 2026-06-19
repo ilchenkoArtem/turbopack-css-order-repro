@@ -5,7 +5,6 @@ export const metadata = {
   title: "Turbopack CSS order repro",
 };
 
-const routes = Array.from({ length: 16 }, (_, i) => `/r${i + 1}`);
 
 export default function RootLayout({
   children,
@@ -17,13 +16,7 @@ export default function RootLayout({
       <body>
         <div className="page">
           <nav className="nav">
-            <Link href="/">Home</Link>
             <Link href="/catalog">Catalog</Link>
-            {routes.map((r) => (
-              <Link key={r} href={r}>
-                {r}
-              </Link>
-            ))}
           </nav>
           {children}
         </div>

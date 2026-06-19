@@ -15,11 +15,6 @@ export default function Home() {
         lands after <code>Banner.module.css</code>, so <code>.kindPrimary</code> wins
         over the equal-specificity <code>.featureButton</code>.
       </p>
-      {/* Home also renders Buttons (like a dashboard) so the base module is part of
-          this route's chunk as well as the shared one. */}
-      <W1 />
-      <W7 />
-      <W13 />
     </main>
   );
 }
