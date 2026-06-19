@@ -1,12 +1,20 @@
 /*
-  A plain global element rule, unlayered. Relevant to one of the fixes: if you
-  wrap the Button module in `@layer`, this `a { color }` (unlayered) will start
-  winning over the button's layered `color`, turning the link text black. That is
-  the trap that makes a full-module @layer migration risky in a legacy app.
+  Cascade layer order (declared once, before any rules). Lowest → highest:
+  legacy global element styles < ui-kit base components < unlayered app overrides.
+  This makes cascade priority independent of Turbopack's chunk insertion order.
 */
-a {
-  color: #000000;
-  text-decoration: none;
+@layer legacy, ui-kit;
+
+/*
+  Legacy global element styles go in the lowest layer. Without this, the unlayered
+  `a { color }` would beat the (layered) ui-kit `.button { color }` and turn the
+  link text black — the regression seen when only the component is layered.
+*/
+@layer legacy {
+  a {
+    color: #000000;
+    text-decoration: none;
+  }
 }
 
 body {

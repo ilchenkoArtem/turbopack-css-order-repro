@@ -6,22 +6,30 @@
   `.kindPrimary` and Banner's `.featureButton` both set `--btn-bg` with equal
   specificity (0,1,0), so only document order decides the winner.
 */
-.button {
-  --btn-bg: transparent;
-  --btn-fg: #ffffff;
+/*
+  Base ui-kit component styles live in the `ui-kit` layer (order declared in
+  globals.css). The app's `.featureButton` override stays unlayered, so it always
+  wins over `.kindPrimary` regardless of how many duplicate Button chunks Turbopack
+  appends on navigation — the cascade no longer depends on stylesheet order.
+*/
+@layer ui-kit {
+  .button {
+    --btn-bg: transparent;
+    --btn-fg: #ffffff;
 
-  appearance: none;
-  border: 1px solid #ffffff;
-  border-radius: 2px;
-  padding: 11px 22px;
-  font: 600 15px/1 system-ui, sans-serif;
-  cursor: pointer;
-  background-color: var(--btn-bg);
-  color: var(--btn-fg);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
+    appearance: none;
+    border: 1px solid #ffffff;
+    border-radius: 2px;
+    padding: 11px 22px;
+    font: 600 15px/1 system-ui, sans-serif;
+    cursor: pointer;
+    background-color: var(--btn-bg);
+    color: var(--btn-fg);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
 
-.kindPrimary {
-  --btn-bg: #fd9728; /* FutureLog orange — the color that wrongly leaks through */
-  --btn-fg: #ffffff;
+  .kindPrimary {
+    --btn-bg: #fd9728; /* FutureLog orange — the color that wrongly leaks through */
+    --btn-fg: #ffffff;
+  }
 }
